@@ -20,7 +20,7 @@ func (p *SamplePlugin) GetVersion() string {
 }
 
 func (p *SamplePlugin) RegRouter(r *mux.Router) {
-	r.Path("/sample-plugin").Methods("GET").HandlerFunc(handler.Pong)
+	r.Methods("GET").Path("/").HandlerFunc(handler.Pong)
 }
 
 func (p *SamplePlugin) InitDB(db *gorm.DB) {

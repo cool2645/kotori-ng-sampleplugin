@@ -1,8 +1,8 @@
 package main
 
 import (
-	. "github.com/cool2645/kotori-ng/kotori_plugin"
 	. "github.com/cool2645/kotori-ng-sampleplugin/sampleplugin"
+	. "github.com/cool2645/kotori-ng/kotoriplugin"
 )
 
 var PluginInstance Plugin = &SamplePlugin{
