@@ -12,6 +12,6 @@ func Pong(w http.ResponseWriter, req *http.Request) {
 		"result": true,
 		"msg":    GlobCfg.Prompt,
 	}
-	ResponseJson(w, res, http.StatusOK)
+	Respond(w, res, http.StatusOK, req)
 	return
 }
