@@ -3,8 +3,10 @@ package main
 import (
 	"github.com/cool2645/kotori-ng-sampleplugin/handler"
 	. "github.com/cool2645/kotori-ng/kotoriplugin"
+	. "github.com/cool2645/kotori-ng-sampleplugin/config"
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
+	"github.com/BurntSushi/toml"
 )
 
 type SamplePlugin struct {
@@ -20,12 +22,18 @@ func (p *SamplePlugin) GetVersion() string {
 	return p.Version
 }
 
-func (p *SamplePlugin) RegRouter(r *mux.Router) {
-	r.Methods("GET").Path("").HandlerFunc(handler.Pong)
+func (p *SamplePlugin) LoadConfig() error  {
+	_, err := toml.DecodeFile("conf.d/kotori-ng-sampleplugin.toml", &GlobCfg)
+	return err
 }
 
-func (p *SamplePlugin) InitDB(db *gorm.DB) {
-	return
+func (p *SamplePlugin) RegRouter(r *mux.Router) error {
+	r.Methods("GET").Path("").HandlerFunc(handler.Pong)
+	return nil
+}
+
+func (p *SamplePlugin) InitDB(db *gorm.DB) error {
+	return nil
 }
 
 
