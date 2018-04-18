@@ -9,20 +9,21 @@ import (
 	"github.com/BurntSushi/toml"
 )
 
-type SamplePlugin struct {
-	Name    string
-	Version string
+type SamplePlugin struct{}
+
+var pi = PluginInfo{
+	Name:    "kotori-ng-sampleplugin",
+	Author:  "2645 Studio",
+	Version: "1.0-rc1",
+	License: "Unlicense",
+	URL:     "https://github.com/cool2645/kotori-ng-sampleplugin",
 }
 
-func (p *SamplePlugin) GetName() string {
-	return p.Name
+func (p *SamplePlugin) GetPluginInfo() PluginInfo {
+	return pi
 }
 
-func (p *SamplePlugin) GetVersion() string {
-	return p.Version
-}
-
-func (p *SamplePlugin) LoadConfig() error  {
+func (p *SamplePlugin) LoadConfig() error {
 	// Here you load your plugin config file
 	// A recommended place for your config file to locate is the conf.d folder
 	_, err := toml.DecodeFile("conf.d/kotori-ng-sampleplugin.toml", &GlobCfg)
@@ -43,8 +44,4 @@ func (p *SamplePlugin) InitDB(db *gorm.DB) error {
 	return nil
 }
 
-
-var PluginInstance Plugin = &SamplePlugin{
-	Name:    "Sample Plugin",
-	Version: "0.0.1",
-}
+var PluginInstance Plugin = &SamplePlugin{}
