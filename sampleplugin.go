@@ -21,7 +21,7 @@ var pi = PluginInfo{
 	BasicInfo: BasicInfo{
 		Name:    "kotori-ng-sampleplugin",
 		Author:  "2645 Studio",
-		Version: "1.0-rc1",
+		Version: "v1.0-rc2",
 		License: "Unlicense",
 		URL:     "https://github.com/cool2645/kotori-ng-sampleplugin",
 	},
