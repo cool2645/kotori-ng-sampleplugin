@@ -11,12 +11,26 @@ import (
 
 type SamplePlugin struct{}
 
+var (
+	BuildTag      string
+	BuildTime     string
+	GitCommitSHA1 string
+	GitTag        string
+)
 var pi = PluginInfo{
-	Name:    "kotori-ng-sampleplugin",
-	Author:  "2645 Studio",
-	Version: "1.0-rc1",
-	License: "Unlicense",
-	URL:     "https://github.com/cool2645/kotori-ng-sampleplugin",
+	BasicInfo: BasicInfo{
+		Name:    "kotori-ng-sampleplugin",
+		Author:  "2645 Studio",
+		Version: "1.0-rc1",
+		License: "Unlicense",
+		URL:     "https://github.com/cool2645/kotori-ng-sampleplugin",
+	},
+	BuildInfo: BuildInfo{
+		BuildTag:      BuildTag,
+		BuildTime:     BuildTime,
+		GitCommitSHA1: GitCommitSHA1,
+		GitTag:        GitTag,
+	},
 }
 
 func (p *SamplePlugin) GetPluginInfo() PluginInfo {
